@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Weather App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="weatherApp" ng-controller="WeatherController">
+    <div class="container">
+        <h2>Weather App</h2>
+        <input type="text" ng-model="city" placeholder="Enter City Name">
+        <button ng-click="getWeather()">Get Weather</button>
+
+        <div class="weather-info" ng-if="weather">
+            <h3>{{ weather.name }}</h3>
+            <p><strong>Temperature:</strong> {{ weather.main.temp }}°C</p>
+            <p><strong>Humidity:</strong> {{ weather.main.humidity }}%</p>
+            <p><strong>Condition:</strong> {{ weather.weather[0].description }}</p>
+        </div>
+
+        <p class="error" ng-if="errorMessage">{{ errorMessage }}</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
